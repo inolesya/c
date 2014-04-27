@@ -6,7 +6,8 @@ void unescape(char s[], char t[]);
 
 int main()
 {
-	char input[MAXLEN] = "la\tla\tta\n";
+    //это скорее придирка, но лучше принимать значения из stdin
+    char input[MAXLEN] = "la\tla\tta\n";
 	char output[MAXLEN];
 	printf("Original   = %s\n", input);
 	escape(output, input);
@@ -16,44 +17,45 @@ int main()
 	printf("The End\n");
 	return 0;
 }
-	void escape(char s[], char t[])
-	{
-		int i, j;
-		for (i = 0, j = 0; s[i]; i++, j++)
-			switch (t[i]) {
-				case '\t':
-					s[j++] = '\\';
-					s[j] = 't';
-					break;
-				case '\n':
-					s[j++] = '\\';
-					s[j] = 'n';
-					break;
-				default:
-					s[j] = t[i];
-					break;
-			}
-		s[j] = t[i];  // \0  !
-	}
-	void unescape(char s[], char t[])
-	{
-		int i, j;
-		for (i = 0, j = 0; s[i]; i++, j++)
-			switch (t[i]) {
-				case '\\':
-			switch (t[++i]) {
-				case 't':
-					s[j] = '\t';
-					break;
-				case 'n':
-					s[j] = '\n';
-					break;
-				}
-			break;
-			default:
-			s[j] = t[i];
-			break;
-		}
-      s[j] = t[i];
-	}
 
+void escape(char s[], char t[])
+{
+	int i, j;
+	for (i = 0, j = 0; s[i]; i++, j++)
+		switch (t[i]) {
+			case '\t':
+				s[j++] = '\\';
+				s[j] = 't';
+				break;
+			case '\n':
+				s[j++] = '\\';
+				s[j] = 'n';
+				break;
+			default:
+				s[j] = t[i];
+				break;
+		}
+	s[j] = t[i];  // \0  !
+}
+
+void unescape(char s[], char t[])
+{
+	int i, j;
+	for (i = 0, j = 0; s[i]; i++, j++)
+		switch (t[i]) {
+			case '\\':
+		        switch (t[++i]) {
+		        	case 't':
+				        s[j] = '\t';
+				        break;
+			        case 'n':
+				        s[j] = '\n';
+				        break;
+			    }
+		        break;
+			default:
+			    s[j] = t[i];
+			    break;
+		}
+    s[j] = t[i];
+}
