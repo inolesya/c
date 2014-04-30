@@ -46,7 +46,7 @@ int main()
 				if (op1 > op2)
 					push ( op1 - op2 * (int) (op1 / op2) );
 				else
-					push (0.0);
+					push (op1);
 			}
 			else
 				printf("error: /0\n");
