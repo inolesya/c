@@ -72,7 +72,7 @@ void push(double f)
 	if (sp < MAXVAL)
 		val[sp++] = f;
 	else
-		printf("error: stek is ful, %g doesn't have any place\n", f);
+		printf("error: stack is full, %g doesn't have any place\n", f);
 }
 
 //рор - взять с вершины стека и выдать за результат
@@ -81,7 +81,7 @@ double pop(void)
 	if (sp > 0)
 		return val[--sp];
 	else {
-		printf ("error: stek is empty\n");
+		printf ("error: stack is empty\n");
 	return 0.0;
 	}
 }
