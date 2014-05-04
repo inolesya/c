@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
+/*
 int getch(void);
 void ungetch(int);
 void ungets(char []);
+*/
 
 #define BUFSIZE 100
 

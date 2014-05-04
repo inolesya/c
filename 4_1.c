@@ -1,9 +1,9 @@
 #include <stdio.h>
 #define MAXLINE 1000 
 
-	int getlin(char line[], int max);
-	int strrindex(char source[], char searchfor[]);
-	char pattern[] ="ould"; /* образец для поиска */
+int getlin(char line[], int max);
+int strindex(char source[], char searchfor[]);
+char pattern[] ="ould"; /* образец для поиска */
 
  
 int main()
@@ -12,9 +12,8 @@ int main()
 	int found = 0;
 	int rind;
 	while (getlin(line, MAXLINE) > 0)
-		if ((rind = strrindex(line, pattern)) >= 0) {
-			printf ("%d", rind);
-			printf ("%s", line);
+		if ((rind = strindex(line, pattern)) >= 0) {
+			printf ("%d\t%s", rind, line);
 			found++;
 		}
 	return found;
@@ -34,7 +33,7 @@ int getlin(char s[], int lim)
   }
 
  
-int strrindex (char s[], char t[])
+int strindex (char s[], char t[])
 {
 	int i, h, k;
 	int tmp = -1;
