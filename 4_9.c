@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+/* Проверено */
 int getch(void);
 void ungetch(int);
 
